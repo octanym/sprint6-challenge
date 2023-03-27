@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import styled from 'styled-components';
 import CharacterCard from './components/Character';
 
-const Header = styled.div`
-  background: #90bdbf;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  border-radius: 75px;
-`;
+// const Header = styled.div`
+//   background: #90bdbf;
+//   padding-top: 1%;
+//   padding-bottom: 1%;
+//   margin-top: 1%;
+//   margin-bottom: 1%;
+//   border-radius: 75px;
+// `;
 
-const HeaderTitle = styled.h1`
-  text-align: center;
-  color: #443e3e;
-  text-shadow: 1px 1px 5px #fff;
-  font-size: 5rem;
-`;
+// const HeaderTitle = styled.h1`
+//   text-align: center;
+//   color: #443e3e;
+//   text-shadow: 1px 1px 5px #fff;
+//   font-size: 5rem;
+// `;
 const Container = styled.div`
   width: 80vw;
   margin: 0 auto;
@@ -52,9 +52,10 @@ const App = () => {
 
   return (
     <Container>
-      <Header>
-        <HeaderTitle> Star Wars Characters</HeaderTitle>
-      </Header>
+      <div className="Header">
+        <h1 className="Title">Star Wars Characters</h1>
+      </div>
+
       <Row>
         {characters.map((char, index) => {
           return index % 2 === 0 ? (
