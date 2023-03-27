@@ -1,1 +1,4 @@
-// Write your Character component here
+import { useEffect, useState } from 'react';
+import './App.css';
+import axios from axios;
+
