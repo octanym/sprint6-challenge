@@ -58,7 +58,7 @@ const App = () => {
 
       <Row>
         {characters.map((char, index) => {
-          return index % 2 === 0 ? (
+          return (
             <CharacterCard
               key={index}
               characterName={char.name}
@@ -67,16 +67,6 @@ const App = () => {
               characterHairColor={char.hair_color}
               characterBirthdate={char.birth_year}
               style={{ flexGrow: '1' }}
-            />
-          ) : (
-            <CharacterCard
-              key={index}
-              characterName={char.name}
-              characterHeight={char.height}
-              characterEyeColor={char.eye_color}
-              characterHairColor={char.hair_color}
-              characterBirthdate={char.birth_year}
-              style={{ flexGrow: '2' }}
             />
           );
         })}
