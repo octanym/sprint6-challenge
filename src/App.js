@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import styled from 'styled-components';
-import { Container, Row } from 'reactstrap';
-import { CharacterCard } from './components/Character';
+import CharacterCard from './components/Character';
 
 const Header = styled.div`
   background: #90bdbf;
@@ -19,6 +18,16 @@ const HeaderTitle = styled.h1`
   color: #443e3e;
   text-shadow: 1px 1px 5px #fff;
   font-size: 5rem;
+`;
+const Container = styled.div`
+  width: 80vw;
+  margin: 0 auto;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 `;
 
 const App = () => {
@@ -44,19 +53,32 @@ const App = () => {
   return (
     <Container>
       <Header>
-        <HeaderTitle className="Header"> Star Wars Characters</HeaderTitle>
+        <HeaderTitle> Star Wars Characters</HeaderTitle>
       </Header>
       <Row>
-        {characters.map((char, index) => (
-          <CharacterCard
-            key={index}
-            characterName={char.name}
-            characterHeight={char.height}
-            characterEyeColor={char.eye_color}
-            characterHairColor={char.hair_color}
-            characterBirthdate={char.birth_year}
-          />
-        ))}
+        {characters.map((char, index) => {
+          return index % 2 === 0 ? (
+            <CharacterCard
+              key={index}
+              characterName={char.name}
+              characterHeight={char.height}
+              characterEyeColor={char.eye_color}
+              characterHairColor={char.hair_color}
+              characterBirthdate={char.birth_year}
+              style={{ flexGrow: '1' }}
+            />
+          ) : (
+            <CharacterCard
+              key={index}
+              characterName={char.name}
+              characterHeight={char.height}
+              characterEyeColor={char.eye_color}
+              characterHairColor={char.hair_color}
+              characterBirthdate={char.birth_year}
+              style={{ flexGrow: '2' }}
+            />
+          );
+        })}
       </Row>
     </Container>
   );
